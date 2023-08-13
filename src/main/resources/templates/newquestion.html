@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nueva Pregunta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+        }
+
+        form {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff6600;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        a:hover {
+            color: #ff6600;
+        }
+    </style>
+</head>
+<body>
+<h1>Nueva Pregunta</h1>
+<form th:action="@{/questions/new}" method="POST" th:object="${questionTagObject}">
+    <label>Question:
+        <textarea cols="30" rows="10" th:field="*{question.question}"></textarea>
+    </label>
+    <label>
+        Tags:
+        <input type="text" th:field="*{tag.subject}">
+    </label>
+    <input type="submit" value="Hacer Pregunta">
+</form>
+<a href="/">Volver al index</a>
+</body>
+</html>
